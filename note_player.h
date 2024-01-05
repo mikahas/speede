@@ -1,6 +1,8 @@
 #ifndef NOTE_PLAYER_H
 #define NOTE_PLAYER_H
+
 #include <Arduino.h>
+
 #include "pitches.h"
 #include "game_state.h"
 

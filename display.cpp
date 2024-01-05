@@ -12,7 +12,7 @@ void setupDisplay() {
   byte numDigits = 4;
   byte digitPins[] = { 2, 3, 4, 5 };
   byte segmentPins[] = { 6, 7, 8, 9, 10, 11, 12, 13 };
-  bool resistorsOnSegments = false; // 'false' means resistors are on digit pins
+  bool resistorsOnSegments = true; // 'false' means resistors are on digit pins
   byte hardwareConfig = COMMON_ANODE;
   bool updateWithDelays = false; // Default 'false' is Recommended
   bool leadingZeros = false; // Use 'true' if you'd like to keep the leading zeros

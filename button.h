@@ -1,5 +1,6 @@
 #ifndef BUTTON_H
 #define BUTTON_H
+
 #include <Arduino.h>
 
 // Used for menu interactions

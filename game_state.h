@@ -1,6 +1,8 @@
 #ifndef GAME_STATE_H
 #define GAME_STATE_H
 
+#include <Arduino.h>
+
 #include "button.h"
 #include "game_speed.h"
 
