@@ -118,7 +118,7 @@ If left idle for a while, the game initiates a demo mode, randomly illuminating 
 
 Motivated by Spede Pasanen and the TV game show "Speden Spelit," which aired in Finland during the 90s and early 2000s, I chose to create Spede-themed artwork for the game, adding a unique touch to it.
 
-![Speede](/images/speede.png "Speede breadboard and artwork")
+![Speede](/images/speede.jpg "Speede breadboard and artwork")
 
 <!-- CONTRIBUTING -->
 ## Contributing
