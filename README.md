@@ -1,7 +1,5 @@
 <a name="readme-top"></a>
 
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -13,11 +11,6 @@
 
   <p align="center">
     An arcade style reaction game built with Arduino.
-    <br />
-    <a href="https://github.com/mikahas/speede"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/mikahas/speede">View Demo</a>
   </p>
 </div>
 
