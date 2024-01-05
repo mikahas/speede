@@ -77,7 +77,7 @@ Other stuff:
 ### Installation
 
 Hardware schematics:
-![Speede schematics](/images/speede_schem.jpg "Speede schematics")
+![Speede schematics](/images/speede_schem.png "Speede schematics")
 
 The Arduino code is self contained and no external libraries are needed. I used VSCode to write the program but you should be able to just open the project into the regular old Arduino IDE.
 
