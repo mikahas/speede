@@ -75,7 +75,7 @@ Other stuff:
 ### Installation
 
 Hardware schematics:
-[image]
+![Speede schematics](/images/speede_schem.png "Speede schematics")
 
 A seven segment display controller library is needed to manage the four digit seven segment display.
 
