@@ -1,7 +1,5 @@
 <a name="readme-top"></a>
-
 <!-- PROJECT LOGO -->
-<br />
 <div align="center">
   <!-- <a href="https://github.com/mikahas/speede">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
@@ -43,7 +41,7 @@ Immerse yourself in the retro thrill of this arcade-style reaction game, featuri
 
 Your sole challenge? Keep up with the relentless rhythm of blinking lights. Brace yourself for a rollercoaster of frustration and fun, as this game brilliantly combines a challenge with an irresistibly addictive quality, keeping you coming back for more adrenaline-pumping action.
 
-A special thanks to Spede Pasanen, the Finnish inventor, comedian, and multifaceted personality, whose creativity inspired this exciting journey.
+A special thanks to Spede Pasanen, the Finnish inventor, comedian, and multifaceted personality, whose creativity inspired this exciting project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -79,7 +77,15 @@ Other stuff:
 Hardware schematics:
 [image]
 
-The Arduino code is self contained and no external libraries are needed. I used VSCode to write the program but you should be able to just open the project into the regular old Arduino IDE.
+A seven segment display controller library is needed to manage the four digit seven segment display.
+
+If you use Arduino Mega a shift register component is not necessary (but is recommended).
+  - I used SevSeg library to run the display directly
+    - https://github.com/DeanIsMe/SevSeg
+  - There is a similar library for running the display with a shift register component
+    - https://github.com/bridystone/SevSegShift
+
+I used VSCode to write the program but you should be able to just open the project into the regular old Arduino IDE.
 
 1. Select the correct board (Arduino Mega 2560) 
 2. Upload code to the board
