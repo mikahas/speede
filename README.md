@@ -79,17 +79,21 @@ Hardware schematics:
 
 A seven segment display controller library is needed to manage the four digit seven segment display.
 
-If you use Arduino Mega a shift register component is not necessary (but is recommended).
+If you use Arduino Mega a shift register component is not necessary (but recommended).
   - I used SevSeg library to run the display directly
     - https://github.com/DeanIsMe/SevSeg
   - There is a similar library for running the display with a shift register component
     - https://github.com/bridystone/SevSegShift
+    - It should be possible to use an Arduino UNO with shift register component as you only need 3 or 7 output pins to operate the display.
+    - Shift register component I used is SN74HC595N
+    - Here's an example connection schematics for the shift register implementation: https://simple-circuit.com/arduino-7-segment-74hc595-shift-register/
 
 I used VSCode to write the program but you should be able to just open the project into the regular old Arduino IDE.
 
 1. Select the correct board (Arduino Mega 2560) 
-2. Upload code to the board
-3. Play!
+1. Connect the physical components 
+1. Upload code to the board
+1. Play!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
