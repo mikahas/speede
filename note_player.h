@@ -6,7 +6,8 @@
 #include "pitches.h"
 #include "game_state.h"
 
-#define BUZZER_PIN 30 // Arduino MEGA 2560 pin
+// #define BUZZER_PIN 30 // Arduino MEGA 2560 pin
+#define BUZZER_PIN 3 // Arduino UNO
 
 // Note durations, e.g. 1/8 = 0.125
 #define NOTE_DURATION_SIXTEENTH 16

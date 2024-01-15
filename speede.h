@@ -5,7 +5,8 @@
 #define MAX_STACK 50
 
 // Arduino MEGA 2560 pin, do not connect anything to this pin for better randomness!
-#define UNCONNECTED_RANDOM_PIN 42
+// #define UNCONNECTED_RANDOM_PIN 42
+#define UNCONNECTED_RANDOM_PIN A5 // UNO etc.
 
 // Similar delay was used in Jaakko Kairus' speed game
 #define INITIAL_REACTION_TIME 570.0 // Milliseconds

@@ -3,7 +3,7 @@
 
 #include <Arduino.h>
 
-#include "SevSeg.h"
+#include "SevSegShift.h"
 #include "speede.h"
 
 void setupDisplay();
