@@ -82,9 +82,15 @@ float getUpdatedReactionTime(float currentReactionTime) {
 
 void handleSpeedGameOver() {
   turnOnLeds();
-  if (highScore < speedGamePoints) setHighScore(speedGamePoints);
-  if (speedGamePoints == 87) playPiece(Chime::EasterEgg);
-  else playPiece(Chime::GameOver);
+  if (highScore < speedGamePoints) {
+    setHighScore(speedGamePoints);
+    playPiece(Chime::NewHighScore);
+  } else if (speedGamePoints == 87) {
+    playPiece(Chime::EasterEgg);
+  } else {
+    playPiece(Chime::GameOver);
+  }
+
   setGameState(GAME_OVER);
 }
 

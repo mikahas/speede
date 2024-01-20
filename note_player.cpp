@@ -108,6 +108,26 @@ Piece pieceGameOver = {
   175
 };
 
+Note notesNewHighScore[] = {
+  { NOTE_D4, NOTE_DURATION_EIGHTH_TRIPLET },
+  { NOTE_D4, NOTE_DURATION_EIGHTH_TRIPLET },
+  { NOTE_D4, NOTE_DURATION_EIGHTH_TRIPLET },
+  { NOTE_D4, NOTE_DURATION_QUARTER },
+  { NOTE_AS3, NOTE_DURATION_QUARTER },
+  { NOTE_C4, NOTE_DURATION_QUARTER },
+
+  { NOTE_D4, NOTE_DURATION_EIGHTH_TRIPLET },
+  { NOTE_REST, NOTE_DURATION_EIGHTH_TRIPLET },
+  { NOTE_C4, NOTE_DURATION_EIGHTH_TRIPLET },
+  { NOTE_D4, NOTE_DURATION_QUARTER_DOT },
+};
+
+Piece pieceNewHighScore = {
+  notesNewHighScore,
+  sizeof(notesNewHighScore) / sizeof(notesNewHighScore[0]),
+  130
+};
+
 float pieceTempo;
 byte noteIndex;
 byte noteCount;
@@ -144,6 +164,11 @@ void playPiece(Chime chime) {
       notes = pieceGameOver.notes;
       noteCount = pieceGameOver.noteCount;
       pieceTempo = getTempoInMillis(pieceGameOver.tempo);
+      break;
+    case Chime::NewHighScore:
+      notes = pieceNewHighScore.notes;
+      noteCount = pieceNewHighScore.noteCount;
+      pieceTempo = getTempoInMillis(pieceNewHighScore.tempo);
       break;
     case Chime::EasterEgg:
       notes = easterEgg.notes;

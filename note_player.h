@@ -11,6 +11,7 @@
 
 // Note durations, e.g. 1/8 = 0.125
 #define NOTE_DURATION_SIXTEENTH 16
+#define NOTE_DURATION_EIGHTH_TRIPLET 12
 #define NOTE_DURATION_EIGHTH 8
 #define NOTE_DURATION_EIGHTH_DOT 5.333 // 1/8 + 1/16 = 3/16 (= ~1/5.333)
 #define NOTE_DURATION_QUARTER 4
@@ -23,6 +24,7 @@
 enum Chime: byte {
   EasterEgg,
   GameOver,
+  NewHighScore,
   NewGame,
   InTheHallOfTheMountainKing
 };
