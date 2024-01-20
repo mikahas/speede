@@ -1,12 +1,15 @@
 #include "button.h"
 
 #define DEBOUNCE_DELAY 15 // Milliseconds
+#define LONG_PRESS_DELAY 3000 // 3 seconds
 
 // Button variables
 bool isPressed = false;
+bool resetLongPress = false;
 ButtonColor pressedButtonColor;
 byte buttons[] = { A0, A1, A2, A3 };
 #define BUTTON_COUNT sizeof(buttons)
+bool isLongPress[BUTTON_COUNT] = { false, false, false, false };
 byte buttonPressStates[BUTTON_COUNT] = {}; // List of button press states
 byte lastButtonPressStates[BUTTON_COUNT] = {}; // Save last button press states to a list for comparing it to a new button press
 
@@ -30,21 +33,40 @@ void setupButtons() {
 void handleButtons() {
   unsigned long currentTime = millis();
   for (byte n = 0; n < BUTTON_COUNT; n++)  {
-    byte buttonPress = digitalRead(buttons[n]);
+    byte buttonPressState = digitalRead(buttons[n]);
 
-    if (buttonPress != lastButtonPressStates[n]) lastDebounceTime[n] = currentTime;
+    if (buttonPressState != lastButtonPressStates[n]) lastDebounceTime[n] = currentTime;
 
-    if (
-      (currentTime - lastDebounceTime[n]) > DEBOUNCE_DELAY &&
-      buttonPressStates[n] != buttonPress
+    // Quick press handling
+    if ((currentTime - lastDebounceTime[n]) > DEBOUNCE_DELAY &&
+      buttonPressStates[n] != buttonPressState
     ) {
-      buttonPressStates[n] = buttonPress;
-      if (buttonPress == LOW) {    // button pressed
+      buttonPressStates[n] = buttonPressState;
+      if (buttonPressState == LOW) {    // button pressed
         isPressed = true;
         pressedButtonColor = getButtonColorByIndex(n);
       }
     }
-    lastButtonPressStates[n] = buttonPress;
+
+    // Long press handling
+    if (currentTime - lastDebounceTime[n] > LONG_PRESS_DELAY &&
+      buttonPressState == LOW && // Keep pressed
+      isLongPress[n] == false
+    ) {
+      isLongPress[n] = true;
+      // pressedButtonColor = getButtonColorByIndex(n);
+    }
+
+    // Reset long press
+    if (buttonPressState == HIGH && // No longer pressed
+      resetLongPress == true &&
+      isLongPress[n] == true
+    ) {
+      resetLongPress = false;
+      isLongPress[n] = false;
+    }
+
+    lastButtonPressStates[n] = buttonPressState;
   }
 }
 
@@ -53,8 +75,21 @@ bool isButtonPressed() {
   return isPressed;
 }
 
+// return true if any of the buttons are long pressed
+bool isButtonLongPressed() {
+  for (byte n = 0; n < BUTTON_COUNT; n++)  {
+    if (isLongPress[n] && resetLongPress == false) return true;
+  }
+  return false;
+}
+
 void resetButtonPress() {
   isPressed = false;
+}
+
+void resetButtonLongPress() {
+  // Wait for user to stop pressing the button
+  resetLongPress = true;
 }
 
 ButtonColor getPressedButtonColor() {
