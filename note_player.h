@@ -37,7 +37,7 @@ struct Piece {
   byte noteCount;
   int tempo;
 
-  // NOTE: The fastest tempo on a label-released single that has received radio
+  // NOTE: Using int for tempo. The fastest tempo on a label-released single that has received radio
   // play is the song Thousand by Moby, which at one point reaches 1015 BPM.
   // https://www.youtube.com/watch?v=vRJKOCmTXLo
 };
