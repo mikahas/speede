@@ -22,7 +22,7 @@ void setupDisplay() {
 
   // Shift register pins
   byte digitPins[] = {1, 4, 5, 8+1}; // of ShiftRegister(s) | 8+x (2nd Register)
-  byte segmentPins[] = {2, 6, 8+3, 8+5, 8+6, 3, 8+2,  8+4}; // of Shiftregister(s) | 8+x (2nd Register)
+  byte segmentPins[] = {2, 6, 8+3, 8+5, 8+6, 3, 8+2, 8+4}; // of Shiftregister(s) | 8+x (2nd Register)
 
   bool resistorsOnSegments = true; // 'false' means resistors are on digit pins
   // byte hardwareConfig = COMMON_ANODE;

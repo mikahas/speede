@@ -8,9 +8,16 @@ float reactionTime = INITIAL_REACTION_TIME;
 int speedGamePoints = 0;
 ButtonColor buttonColorStack[MAX_STACK];
 byte buttonColorStackLevel = 0;
+int highScore = 0;
 
 // unsigned int buttonNotes[] = { NOTE_D4, NOTE_FS4, NOTE_A4, NOTE_C5 }; // D7
 unsigned int buttonNotes[] = { NOTE_A4, NOTE_CS5, NOTE_E5, NOTE_GS5 }; // Amaj7
+
+void setupSpeedGame() {
+  // NOTE: By default the values in EEPROM are all 255 so do a high score reset
+  // when changing the address or running the code in a new Arduino
+  EEPROM.get(EEPROM_SPEED_HIGH_SCORE_ADDRESS, highScore);
+}
 
 void initializeSpeedGame() {
   turnOffLeds();
@@ -75,9 +82,9 @@ float getUpdatedReactionTime(float currentReactionTime) {
 
 void handleSpeedGameOver() {
   turnOnLeds();
+  if (highScore < speedGamePoints) setHighScore(speedGamePoints);
   if (speedGamePoints == 87) playPiece(Chime::EasterEgg);
   else playPiece(Chime::GameOver);
-  // TODO: save high score if new record
   setGameState(GAME_OVER);
 }
 
@@ -109,4 +116,20 @@ void incrementPoints() {
   // Max is 9999 due to display size limit
   if (speedGamePoints > 9999) speedGamePoints = 0; // Muhahaha!
   setDisplayNumber(speedGamePoints);
+}
+
+void setHighScore(int newScore) {
+  highScore = newScore;
+  if (highScore > 9999) highScore = 9999; // Cheater!
+  EEPROM.put(EEPROM_SPEED_HIGH_SCORE_ADDRESS, highScore);
+}
+
+int getHighScore() {
+  return highScore;
+}
+
+void resetHighScore() {
+  setHighScore(0);
+  setScrollText("    HISCORE - 0");
+  EEPROM.put(EEPROM_SPEED_HIGH_SCORE_ADDRESS, 0);
 }
