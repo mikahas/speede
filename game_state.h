@@ -13,5 +13,6 @@ GameMenu getGameState();
 void setGameState(GameMenu state);
 void handleGameLobby();
 void handleDemo();
+void handleHighScore();
 
 #endif
