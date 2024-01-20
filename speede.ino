@@ -16,6 +16,7 @@ void setup() {
   setupLEDs();
   setupPlayer();
   setupMenu();
+  setupSpeedGame();
 
   // Generate a random seed from reading a value from unconnected pin 
   randomSeed(analogRead(UNCONNECTED_RANDOM_PIN));
@@ -42,8 +43,8 @@ void loop() {
     case GAME_DEMO:
       handleDemo(); // Just blink some LEDs!
       break;
-    case GAME_HIGH_SCORE:
-      // TODO: show high score
+    case GameMenu::GAME_HIGH_SCORE:
+      handleHighScore();
       break;
     // TODO: memory game
 
