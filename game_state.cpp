@@ -12,6 +12,7 @@ unsigned long gameStateTimer;
 byte previousDemoColor;
 
 void setupMenu() {
+  turnOnLeds();
   setScrollText("   PUSH RED TO START - BLUE FOR HISCORE - HOLD BLUE TO RESET HISCORE -");
   gameStateTimer = millis();
 }
@@ -41,8 +42,8 @@ void handleGameLobby() {
       case ButtonColor::BUTTON_RED:
         initializeSpeedGame();
         break;
-      // TODO: memory game
       // case ButtonColor::BUTTON_YELLOW:
+      //   // TODO: memory game
       //   break;
       case ButtonColor::BUTTON_BLUE:
         char highScore[18]; // "    HISCORE: " + 1 to 4 numbers
