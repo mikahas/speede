@@ -3,7 +3,7 @@
 // Button LEDs
 // byte buttonLeds[] = { 22, 24, 26, 28 }; // Arduino MEGA 2560
 byte buttonLeds[] = { 7, 6, 5, 4 }; // Arduino UNO
-#define LED_PIN_COUNT sizeof(buttonLeds)
+// #define LED_PIN_COUNT sizeof(buttonLeds)
 
 // Port A pins in Arduino MEGA 2560
 // #define LED_RED       B00000001 // Pin 22
@@ -24,9 +24,12 @@ byte buttonLeds[] = { 7, 6, 5, 4 }; // Arduino UNO
 #define LEDS_ALL_ON   B11110000
 
 void setupLEDs() {
-    for (unsigned n = 0; n < LED_PIN_COUNT; n++)  {
-        pinMode(buttonLeds[n], OUTPUT);
-    }
+    // for (unsigned n = 0; n < LED_PIN_COUNT; n++)  {
+    //     pinMode(buttonLeds[n], OUTPUT);
+    // }
+
+    // Set Arduino UNO pins as outputs
+    DDRD = LEDS_ALL_ON; // NOTE: Also forces the rest of the port bits to 0 (=inputs)
 
     // Do a little demo and test the masks
     setLEDMask(LED_RED);
@@ -71,6 +74,7 @@ void highlightOneButtonLED(ButtonColor color) {
 
 void setLEDMask(byte mask) {
   byte ledMask = LEDS_ALL_ON; // BLUE, GREEN, YELLOW, RED
+  // NOTE: Maybe not the best practice to use direct port manipulation
   // PORTA = ledMask & mask; // Arduino mega 2560 Port A (pins 22-29)
   PORTD = ledMask & mask; // Arduino UNO Port D 4-7
 }
